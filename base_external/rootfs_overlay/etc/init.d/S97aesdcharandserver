@@ -1,0 +1,19 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		cd /lib/modules/$(uname -r)/extra
+		aesdchar_load
+		;;
+	stop)
+		cd /lib/modules/$(uname -r)/extra
+		aesdchar_unload
+		;;
+
+	*)
+		echo "Usage: $0 {start|stop}"
+		exit 1
+		;;
+esac
+
+exit 0
